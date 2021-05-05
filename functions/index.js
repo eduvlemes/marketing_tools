@@ -65,7 +65,7 @@ server.use((req, res, next) => {
 router.use('/alpix/', (req, res, next) => {
   res.set({
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, OPTIONS, POST, UPDATE",
     "Access-Control-Allow-Headers": "Content-Type, Accept-Encoding, Cache-Control",
     "Access-Control-Max-Age": "600"
   })
