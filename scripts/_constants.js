@@ -9,7 +9,7 @@ if (!project) {
     const firebaserc = require('../.firebaserc')
     project = firebaserc.projects.default
   } catch (e) {
-    project = 'ecom-app'
+    project = 'marketingtools-ecomplus'
   }
 }
 
