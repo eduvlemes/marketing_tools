@@ -8,6 +8,7 @@ exports.post = ({ appSdk, admin }, req, res) => {
         db.collection('stores').add({
             [storeId] : {}
         })
+        console.log('Adicionou loja')
     }
 
     const apx_db = db.collection('stores').get(storeId);
@@ -18,6 +19,7 @@ exports.post = ({ appSdk, admin }, req, res) => {
 
     if(mail != null){
         add_mail(fullname, mail, gender)
+        console.log('chamou função')
     }
     
     function add_mail(fullname, mail, gender){        
@@ -30,7 +32,11 @@ exports.post = ({ appSdk, admin }, req, res) => {
         const query = apx_db.where('mail', '==', mail).get();
         if(query.empty){
             apx_db.add(subscriber)
+            res.send({error: 'false', msg : 'Seu e-mail foi adicionado em nossa lista.'})
         };
+
+        res.send({error: 'true', msg : 'E-mail já inscrito em nossa newsletter.'})
+        
     }
 
     function delete_mail(mail){
@@ -39,5 +45,5 @@ exports.post = ({ appSdk, admin }, req, res) => {
         }
     }
     
-    res.send({storeid : storeId})
+    res.send({error: 'false', msg : ''})
 }
