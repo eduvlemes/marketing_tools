@@ -1,8 +1,21 @@
 exports.post = ({ appSdk }, req, res) => {
     const storeId = req.storeId || 1208
-    //const apx_db = firebase.database().ref(store_id);
-    //const apx_subscribers = apx_db.child('subscribers');
-    console.log(storeId);
+    const apx_db = firebase.database().ref(store_id);
+    if(!apx_db){
+        firebase.database().push(
+            {
+                [storeId] : storeId
+            }
+        )
+    }
+    const apx_subscribers = apx_db.child('subscribers');
+    const mail = req.mail;
+    const fullname = req.fullname || null;
+    const gender = req.gender || null;
+
+    if(mail != null){
+        add_mail(fullname, mail, gender)
+    }
     
     function add_mail(fullname, mail, gender){        
         const subscriber = {
