@@ -1,9 +1,9 @@
 
 
-exports.post = ({ appSdk, admin }, apx_req, res) => {
+exports.post = ({ appSdk, admin }, req, res) => {
     const db = admin.firestore()
-    const apx_req = req.body
-    const storeId = apx_req.storeId || 1208
+    const data = req.body
+    const storeId = data.storeId || 1208
     
     if(!db.collection('stores').get(storeId)){
         db.collection('stores').add({
@@ -14,9 +14,9 @@ exports.post = ({ appSdk, admin }, apx_req, res) => {
 
     const apx_db = db.collection('stores').get(storeId);
     
-    const mail = apx_req.mail;
-    const fullname = apx_req.fullname || null;
-    const gender = apx_req.gender || null;
+    const mail = data.mail;
+    const fullname = data.fullname || null;
+    const gender = data.gender || null;
 
     if(mail != null){
         const subscriber = {
