@@ -1,9 +1,9 @@
 
 
-exports.post = ({ appSdk, admin }, data, res) => {
+exports.post = ({ appSdk, admin }, apx_req, res) => {
     const db = admin.firestore()
-    const data = req.body
-    const storeId = data.storeId || 1208
+    const apx_req = req.body
+    const storeId = apx_req.storeId || 1208
     
     if(!db.collection('stores').get(storeId)){
         db.collection('stores').add({
@@ -14,23 +14,22 @@ exports.post = ({ appSdk, admin }, data, res) => {
 
     const apx_db = db.collection('stores').get(storeId);
     
-    const mail = data.mail;
-    const fullname = data.fullname || null;
-    const gender = data.gender || null;
+    const mail = apx_req.mail;
+    const fullname = apx_req.fullname || null;
+    const gender = apx_req.gender || null;
 
     if(mail != null){
         const subscriber = {
             fullname: fullname,
             mail: mail,
             gender: gender
-        };
+        }
 
         const query = apx_db.where('mail', '==', mail).get();
         if(query.empty){
             apx_db.add(subscriber)
             res.send({error: 'false', msg : 'Seu e-mail foi adicionado em nossa lista.'})
-        };
-
+        }
         res.send({error: 'true', msg : 'E-mail já inscrito em nossa newsletter.'})
     }
     
