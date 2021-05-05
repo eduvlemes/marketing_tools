@@ -1,7 +1,8 @@
 exports.post = ({ appSdk }, req, res) => {
-   const storeId = req.storeId || 1208
-   const apx_db = firebase.database().ref(store_id);
-    const apx_subscribers = apx_db.child('subscribers');
+    const storeId = req.storeId || 1208
+    //const apx_db = firebase.database().ref(store_id);
+    //const apx_subscribers = apx_db.child('subscribers');
+    console.log(storeId);
     
     function add_mail(fullname, mail, gender){        
         const subscriber = {
