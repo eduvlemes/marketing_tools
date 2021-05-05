@@ -61,11 +61,6 @@ server.use((req, res, next) => {
   next()
 })
 
-router.get('/', (req, res) => {
-  // pretty print application body
-  server.set('json spaces', 2)
-  require(`${routes}/`)(req, res)
-})
 
 router.use('/alpix/', (req, res, next) => {
   res.set({
@@ -76,6 +71,13 @@ router.use('/alpix/', (req, res, next) => {
   })
   next() 
 })
+
+router.get('/', (req, res) => {
+  // pretty print application body
+  server.set('json spaces', 2)
+  require(`${routes}/`)(req, res)
+})
+
 
 const prepareAppSdk = () => {
   // debug ecomAuth processes and ensure enable token updates by default
