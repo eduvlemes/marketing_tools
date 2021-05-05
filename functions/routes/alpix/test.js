@@ -1,3 +1,3 @@
 exports.get = ({ appSdk }, req, res) => {
-    return {msg:"hi"}
+    res.json({msg:"hi"})
 }
