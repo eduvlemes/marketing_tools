@@ -6,10 +6,11 @@
  */
 
 const app = {
-  app_id: 117520,
-  title: 'My Awesome E-Com Plus App',
-  slug: 'my-awesome-app',
-  type: 'external',
+  app_id: 90000001,
+  title: 'Simple Newsletter',
+  slug: 'alpix-simple-newsletter',
+  version: "1.0.0",
+  type: 'storefront',
   state: 'active',
   authentication: true,
 
