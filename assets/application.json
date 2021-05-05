@@ -1,7 +1,8 @@
 {
   "app_id": 90000001,
-  "title": "[alpix.dev] Simple Newsletter",
+  "title": "Simple Newsletter",
   "slug": "alpix-simple-newsletter",
+  "version": "1.0.0",
   "type": "storefront",
   "state": "active",
   "authentication": true,
@@ -26,5 +27,5 @@
     "products/price": [],
     "products/variations/price": []
   },
-  "version": "1.0.0"
+  "auth_callback_uri": "https://us-central1-marketingtools-ecomplus.cloudfunctions.net/app/ecom/auth-callback"
 }
