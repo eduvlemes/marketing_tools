@@ -1,8 +1,9 @@
 
 
-exports.post = ({ appSdk, admin }, req, res) => {
+exports.post = ({ appSdk, admin }, data, res) => {
     const db = admin.firestore()
-    const storeId = req.storeId || 1208
+    const data = req.body
+    const storeId = data.storeId || 1208
     
     if(!db.collection('stores').get(storeId)){
         db.collection('stores').add({
@@ -13,16 +14,11 @@ exports.post = ({ appSdk, admin }, req, res) => {
 
     const apx_db = db.collection('stores').get(storeId);
     
-    const mail = req.mail;
-    const fullname = req.fullname || null;
-    const gender = req.gender || null;
+    const mail = data.mail;
+    const fullname = data.fullname || null;
+    const gender = data.gender || null;
 
     if(mail != null){
-        add_mail(fullname, mail, gender)
-        console.log('chamou função')
-    }
-    
-    function add_mail(fullname, mail, gender){        
         const subscriber = {
             fullname: fullname,
             mail: mail,
@@ -36,9 +32,9 @@ exports.post = ({ appSdk, admin }, req, res) => {
         };
 
         res.send({error: 'true', msg : 'E-mail já inscrito em nossa newsletter.'})
-        
     }
-
+    
+    
     function delete_mail(mail){
         if(apx_db.orderByChild(email).equalTo(mail)){
             apx_db.orderByChild(email).equalTo(mail).remove();
