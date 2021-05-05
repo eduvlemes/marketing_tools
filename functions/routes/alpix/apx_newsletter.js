@@ -1,7 +1,7 @@
 exports.post = ({ appSdk }, req, res) => {
     const storeId = req.storeId || 1208
     
-    if(!firebase.database().hasChild(store_id)){
+    if(!firebase.database().hasChild(storeId)){
         firebase.database().push(
             {
                 [storeId] : {}
@@ -9,8 +9,8 @@ exports.post = ({ appSdk }, req, res) => {
         )
     }
 
-    const apx_db = firebase.database().ref(store_id);
-    const apx_subscribers = apx_db.child('subscribers');
+    const apx_db = firebase.database().ref(storeId);
+    
     const mail = req.mail;
     const fullname = req.fullname || null;
     const gender = req.gender || null;
@@ -26,16 +26,16 @@ exports.post = ({ appSdk }, req, res) => {
             gender: gender
         };
 
-        if(!apx_subscribers.orderByChild(email).equalTo(mail)){
-            apx_subscribers.push(subscriber, function(){
+        if(!apx_db.orderByChild(email).equalTo(mail)){
+            apx_db.push(subscriber, function(){
                 console.log('new sub added');
             })
         };
     }
 
     function delete_mail(mail){
-        if(apx_subscribers.orderByChild(email).equalTo(mail)){
-            apx_subscribers.orderByChild(email).equalTo(mail).remove(subscriber, function(){
+        if(apx_db.orderByChild(email).equalTo(mail)){
+            apx_db.orderByChild(email).equalTo(mail).remove(subscriber, function(){
                 console.log('sub removed');
             });
         }
