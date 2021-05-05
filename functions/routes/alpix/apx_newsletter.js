@@ -1,9 +1,8 @@
 var firebase = require("firebase-admin");
 
-firebase.initializeApp({
-  credential: firebase.credential.applicationDefault(),
-  databaseURL: "https://marketingtools-ecomplus-default-rtdb.firebaseio.com"
-});
+var refreshToken; // Get refresh token from OAuth2 flow
+
+//firebase.initializeApp();
 
 
 exports.post = ({ appSdk }, req, res) => {
