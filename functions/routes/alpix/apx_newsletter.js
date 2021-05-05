@@ -1,17 +1,16 @@
 
 
-exports.post = ({ appSdk }, req, res) => {
+exports.post = ({ appSdk, admin }, req, res) => {
+    const db = admin.firestore()
     const storeId = req.storeId || 1208
     
-    if(!admin.database().hasChild(storeId)){
-        admin.database().set(
-            {
-                [storeId] : []
-            }
-        )
+    if(!db.collection('stores').get(storeId)){
+        db.collection('stores').add({
+            [storeId] : {}
+        })
     }
 
-    const apx_db = admin.database().ref(storeId);
+    const apx_db = db.collection('stores').get(storeId);
     
     const mail = req.mail;
     const fullname = req.fullname || null;
@@ -28,8 +27,9 @@ exports.post = ({ appSdk }, req, res) => {
             gender: gender
         };
 
-        if(!apx_db.orderByChild(email).equalTo(mail)){
-            apx_db.set(subscriber)
+        const query = apx_db.where('mail', '==', mail).get();
+        if(query.empty){
+            apx_db.add(subscriber)
         };
     }
 
