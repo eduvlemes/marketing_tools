@@ -2,9 +2,9 @@ exports.post = ({ appSdk }, req, res) => {
     const storeId = req.storeId || 1208
     
     if(!firebase.database().hasChild(storeId)){
-        firebase.database().push(
+        firebase.database().set(
             {
-                [storeId] : {}
+                [storeId] : []
             }
         )
     }
@@ -27,17 +27,13 @@ exports.post = ({ appSdk }, req, res) => {
         };
 
         if(!apx_db.orderByChild(email).equalTo(mail)){
-            apx_db.push(subscriber, function(){
-                console.log('new sub added');
-            })
+            apx_db.set(subscriber)
         };
     }
 
     function delete_mail(mail){
         if(apx_db.orderByChild(email).equalTo(mail)){
-            apx_db.orderByChild(email).equalTo(mail).remove(subscriber, function(){
-                console.log('sub removed');
-            });
+            apx_db.orderByChild(email).equalTo(mail).remove();
         }
     }
     
