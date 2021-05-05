@@ -1,6 +1,6 @@
-(function() {
-    const store_id = 1208;
-    const apx_db = firebase.database().ref(store_id);
+exports.post = ({ appSdk }, req, res) => {
+   const storeId = req.storeId || 1208
+   const apx_db = firebase.database().ref(store_id);
     const apx_subscribers = apx_db.child('subscribers');
     
     function add_mail(fullname, mail, gender){        
@@ -24,4 +24,6 @@
             });
         }
     }
-})
+    
+    res.send('ok')
+}
