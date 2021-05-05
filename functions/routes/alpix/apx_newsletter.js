@@ -1,3 +1,11 @@
+var firebase = require("firebase-admin");
+
+firebase.initializeApp({
+  credential: firebase.credential.applicationDefault(),
+  databaseURL: "https://marketingtools-ecomplus-default-rtdb.firebaseio.com"
+});
+
+
 exports.post = ({ appSdk }, req, res) => {
     const storeId = req.storeId || 1208
     
