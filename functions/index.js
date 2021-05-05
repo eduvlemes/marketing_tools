@@ -67,6 +67,16 @@ router.get('/', (req, res) => {
   require(`${routes}/`)(req, res)
 })
 
+router.use('/alpix/', (req, res, next) => {
+  res.set({
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Accept-Encoding, Cache-Control",
+    "Access-Control-Max-Age": "600"
+  })
+  next() 
+})
+
 const prepareAppSdk = () => {
   // debug ecomAuth processes and ensure enable token updates by default
   process.env.ECOM_AUTH_DEBUG = 'true'
