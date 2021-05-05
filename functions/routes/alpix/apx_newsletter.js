@@ -1,22 +1,17 @@
-var firebase = require("firebase-admin");
-
-var refreshToken; // Get refresh token from OAuth2 flow
-
-//firebase.initializeApp();
 
 
 exports.post = ({ appSdk }, req, res) => {
     const storeId = req.storeId || 1208
     
-    if(!firebase.database().hasChild(storeId)){
-        firebase.database().set(
+    if(!admin.database().hasChild(storeId)){
+        admin.database().set(
             {
                 [storeId] : []
             }
         )
     }
 
-    const apx_db = firebase.database().ref(storeId);
+    const apx_db = admin.database().ref(storeId);
     
     const mail = req.mail;
     const fullname = req.fullname || null;
