@@ -1,13 +1,8 @@
 {
   "app_id": 117520,
   "title": "[alpix.dev] Simple Forms",
-<<<<<<< HEAD
-  "slug": "alpix-simple-newsletter",
-  "version": "1.0.1",
-=======
   "slug": "alpix-simple-forms",
-  "version": "1.0.0",
->>>>>>> c0079b07c71b7e4fba99dcfa704ad20029234247
+  "version": "1.0.1",
   "type": "storefront",
   "state": "active",
   "authentication": true,
