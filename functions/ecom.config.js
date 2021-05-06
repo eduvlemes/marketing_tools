@@ -6,7 +6,7 @@
  */
 
 const app = {
-  app_id: 90000001,
+  app_id: 117520,
   title: 'Simple Newsletter',
   slug: 'alpix-simple-newsletter',
   version: "1.0.0",
