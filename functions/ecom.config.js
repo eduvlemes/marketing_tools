@@ -7,8 +7,8 @@
 
 const app = {
   app_id: 117520,
-  title: 'Simple Newsletter',
-  slug: 'alpix-simple-newsletter',
+  title: '[alpix.dev] Simple Forms',
+  slug: 'alpix-simple-forms',
   version: "1.0.0",
   type: 'storefront',
   state: 'active',
