@@ -1,7 +1,7 @@
 exports.post = async ({ appSdk, admin }, req, res) => {
   const data = req.body
   const storeId = data.storeId || 1208
-  const collectionRef = admin.firestore().collection(`s${storeId}_mails`)
+  const collectionRef = admin.firestore().collection(`${storeId}_subscribers`)
 
   const mail = data.mail
   const fullname = data.fullname || null
