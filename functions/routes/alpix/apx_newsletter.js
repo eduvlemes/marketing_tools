@@ -1,5 +1,3 @@
-
-
 exports.post = ({ appSdk, admin }, req, res) => {
     const db = admin.firestore()
     const data = req.body
@@ -9,7 +7,7 @@ exports.post = ({ appSdk, admin }, req, res) => {
         db.collection('stores').add({
             [storeId] : {}
         })
-        console.log('Adicionou loja')
+        console.log('Adicionou loja ' + storeId)
     }
 
     const apx_db = db.collection('stores').get(storeId);
@@ -28,17 +26,13 @@ exports.post = ({ appSdk, admin }, req, res) => {
         const query = apx_db.where('mail', '==', mail).get();
         if(query.empty){
             apx_db.add(subscriber)
+            console.log('add ' + mail + ' in store ' + storeId)
             res.send({error: 'false', msg : 'Seu e-mail foi adicionado em nossa lista.'})
         }
+        console.log('E-mail já inscrito em nossa newsletter.')
         res.send({error: 'true', msg : 'E-mail já inscrito em nossa newsletter.'})
     }
     
-    
-    function delete_mail(mail){
-        if(apx_db.orderByChild(email).equalTo(mail)){
-            apx_db.orderByChild(email).equalTo(mail).remove();
-        }
-    }
-    
-    res.send({error: 'false', msg : ''})
+    console.log('Nenhuma operação realizada')
+    res.send({error: 'false', msg : 'Nenhuma operação realizada'})
 }
