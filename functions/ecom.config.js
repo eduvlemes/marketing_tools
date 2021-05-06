@@ -9,7 +9,7 @@ const app = {
   app_id: 117520,
   title: '[alpix.dev] Simple Forms',
   slug: 'alpix-simple-forms',
-  version: "1.0.0",
+  version: "1.0.1",
   type: 'storefront',
   state: 'active',
   authentication: true,
