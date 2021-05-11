@@ -136,6 +136,40 @@ const app = {
      * You can also set any other valid resource/subresource combination.
      * Ref.: https://developers.e-com.plus/docs/api/#/store/
      */
+  },
+  admin_settings: {
+    apx_newsletter : {
+      schema: {
+        type : 'object',
+        required: [],
+        properties:{
+          box_newsletter_title: {
+            type: 'string',
+            maxLength: 255,
+            title: 'Chamada da newsletter',
+            description: '',
+            default: 'Cadastre-se e receba novidades!'
+          },
+          box_newsletter_name: {
+            type: 'boolean',
+            title: 'Exibir campo "Nome"',
+            default: true
+          },
+          box_newsletter_gender: {
+            type: 'boolean',
+            title: 'Exibir campo "Gênero"',
+            default: false
+          },
+          box_newsletter_gender_types: {
+            type: 'string',
+            maxLength: 255,
+            title: 'Gêneros disponíveis',
+            description: 'Informe separadamente os gêneros que serão exibidos separados por ";". Ex: "Masculino;Feminino"',
+            default: 'Masculino;Feminino'
+          }          
+        }
+      }
+    }
   }
 }
 
