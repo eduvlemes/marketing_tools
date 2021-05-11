@@ -139,7 +139,6 @@ const app = {
   },
   admin_settings: {
     apx_newsletter : {
-      title : 'Formulário Newsletter',
       schema: {
         type : 'object',
         required: [],
@@ -178,7 +177,6 @@ const app = {
       }
     },
     apx_forms : {
-      title : 'Formulários',
       schema : {
         type : 'array',
         maxItems : 2,
