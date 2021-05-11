@@ -139,6 +139,7 @@ const app = {
   },
   admin_settings: {
     apx_newsletter : {
+      title : 'Formulário Newsletter',
       schema: {
         type : 'object',
         required: [],
@@ -166,7 +167,51 @@ const app = {
             title: 'Gêneros disponíveis',
             description: 'Informe separadamente os gêneros que serão exibidos separados por ";". Ex: "Masculino;Feminino"',
             default: 'Masculino;Feminino'
+          },
+          box_newsletter_button: {
+            type: 'string',
+            maxLength: 255,
+            title: 'Texto do Botão',
+            default: 'Cadastrar'
           }          
+        }
+      }
+    },
+    apx_forms : {
+      title : 'Formulários',
+      schema : {
+        type : 'array',
+        maxItems : 2,
+        items : {
+          title : 'Formulário',
+          type : 'object',
+          required : ['title','description','page','fields'],
+          properties : {
+            title : {
+              type: 'string',
+              maxLength: 50,
+              title: 'Título do formulário',
+              description: "Nome do formulário exibido aos clientes"
+            },
+            description : {
+              type: 'string',
+              maxLength: 255,
+              title: 'Descrição do formulário',
+              description: "Texto exibido em página"
+            },
+            page : {
+              type: 'string',
+              maxLength: 100,
+              title: 'Página de exibição',
+              description: "Slug da página em que formulário será exibido"
+            },
+            fields : {
+              type: 'string',
+              maxLength: 500,
+              title: 'Campos',
+              description: 'Informe os campos que serão exibidos no formulário separados por ";". Ex: "Data do pedido;Motivo do contato;Nome;E-mail"'
+            }
+          }
         }
       }
     }
