@@ -1,11 +1,11 @@
 exports.post = async ({ appSdk, admin }, req, res) => {
-  const data = req.body
-  const storeId = data.storeId || 1208
+  const form_data = req.body
+  const storeId = form_data.storeId || 1208
   const collectionRef = admin.firestore().collection('contact_mail')
 
-  const destination = data.destination
-  const subject = data.subject || data.storeId + ' - Sem Assunto'
-  const content = data.content + '<br><br>Enviado utilizando Simple Forms<br>Plugin gratuito temporariamente. Desenvolvido por alpix.dev.'
+  const destination = form_data.destination
+  const subject = form_data.subject || form_data.storeId + ' - Sem Assunto'
+  const content = form_data.content + '<br><br>Enviado utilizando Simple Forms<br>Plugin gratuito temporariamente. Desenvolvido por alpix.dev.'
   
   if (destination != "" && subject != "" && content != "") {
       collectionRef.add({message: {html: content, subject: subject , text: content.replace('<br>',' - ') }, to: destination })
