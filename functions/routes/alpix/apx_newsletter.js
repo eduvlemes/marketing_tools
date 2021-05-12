@@ -18,13 +18,13 @@ exports.post = async ({ appSdk, admin }, req, res) => {
     if (querySnapshot.empty) {
       collectionRef.add(subscriber)
       console.log('add ' + mail + ' in store ' + storeId)
-      return res.send({error: 'false', msg : 'Seu e-mail foi adicionado em nossa lista.'})
+      return res.send({error: false, msg : 'Seu e-mail foi adicionado em nossa lista.'})
     }
     
     console.log('E-mail já inscrito em nossa newsletter.')
-    return res.send({error: 'true', msg : 'E-mail já inscrito em nossa newsletter.'})
+    return res.send({error: true, msg : 'E-mail já inscrito em nossa newsletter.'})
   }
     
   console.log('Nenhuma operação realizada')
-  res.send({error: 'false', msg : 'Nenhuma operação realizada'})
+  res.send({error: false, msg : 'Nenhuma operação realizada'})
 }
