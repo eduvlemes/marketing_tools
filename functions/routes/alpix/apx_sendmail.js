@@ -4,7 +4,7 @@ exports.post = async ({ appSdk, admin }, req, res) => {
   const collectionRef = admin.firestore().collection('contact_mail')
 
   const destination = data.destination
-  const subject = data.storeId + ' - ' + data.subject || data.storeId + ' - Sem Assunto'
+  const subject = data.subject || data.storeId + ' - Sem Assunto'
   const content = data.content + '<br><br>Enviado utilizando Simple Forms<br>Plugin gratuito temporariamente. Desenvolvido por alpix.dev.'
   
   if (destination != "" && subject != "" && content != "") {
