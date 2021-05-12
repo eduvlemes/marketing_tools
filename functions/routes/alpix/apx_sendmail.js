@@ -9,15 +9,11 @@ exports.post = async ({ appSdk, admin }, req, res) => {
   
   
   
-  try{
-    if (destination != "" && subject != "" && content != "") {
-        collectionRef.add('message: {html:"'+ content +'",subject:"'+ subject +'",text:"'+ content +'"},to:"'+ destination +'"')
-        return res.send({error: false, msg : 'Sua mensagem foi enviada.'})
-    }else{
-      return res.send({error: true, msg : 'Preencha o formulário corretamente ou tente novamente mais tarde.'})
-    }
-  }catch(e){
-    return res.send({error: true, msg : e})
+  
+  if (destination != "" && subject != "" && content != "") {
+      collectionRef.add({message: {html: content, subject: subject ,text: content.replace('<br>','\n') }, to: destination })
+      return res.send({error: false, msg : 'Sua mensagem foi enviada.'})
+  }else{
+    return res.send({error: true, msg : 'Preencha o formulário corretamente ou tente novamente mais tarde.'})
   }
-
 }
