@@ -5,10 +5,11 @@ exports.post = async ({ appSdk, admin }, req, res) => {
 
   const destination = form_data.destination
   const subject = form_data.subject || form_data.storeId + ' - Sem Assunto'
-  const content = form_data.content + '<br><br>Enviado utilizando Simple Forms<br>Plugin gratuito temporariamente. Desenvolvido por alpix.dev.'
+  const content = form_data.content 
+  const replyToMail = form_data.reply_mail || '';
   
   if (destination != "" && subject != "" && content != "") {
-      collectionRef.add({message: {html: content, subject: subject , text: content.replace('<br>',' - ') }, to: destination })
+      collectionRef.add({message: {html: content, subject: subject , replyTo: replyToMail, text: content.replace('<br>',' - ')}, to: destination })
       return res.send({error: false, msg : 'Sua mensagem foi enviada.'})
   }else{
     return res.send({error: true, msg : 'Preencha o formulário corretamente ou tente novamente mais tarde.'})
