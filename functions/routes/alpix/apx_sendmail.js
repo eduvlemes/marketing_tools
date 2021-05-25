@@ -9,7 +9,7 @@ exports.post = async ({ appSdk, admin }, req, res) => {
   const replyToMail = form_data.reply_mail || '';
   
   if (destination != "" && subject != "" && content != "") {
-      collectionRef.add({message: {html: content, subject: subject , replyTo: replyToMail, text: content.replace('<br>',' - ')}, to: destination })
+      collectionRef.add({message: {html: content, subject: subject , text: content.replace('<br>',' - ')}, to: destination, replyTo: replyToMail })
       return res.send({error: false, msg : 'Sua mensagem foi enviada.'})
   }else{
     return res.send({error: true, msg : 'Preencha o formulário corretamente ou tente novamente mais tarde.'})
