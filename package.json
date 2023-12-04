@@ -38,6 +38,7 @@
     "dotenv": "^8.2.0",
     "firebase-admin": "^9.7.0",
     "firebase-tools": "^9.5.0",
+    "node-mailjet": "^6.0.5",
     "uglify-js": "^3.13.0"
   },
   "devDependencies": {
