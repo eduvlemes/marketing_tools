@@ -66,40 +66,25 @@
         }
       }
     },
-    "apx_forms": {
+    "mailjet": {
       "schema": {
-        "type": "array",
-        "maxItems": 2,
-        "items": {
-          "title": "Formulário",
-          "type": "object",
-          "required": [
-            "title",
-            "description",
-            "page",
-            "fields"
-          ],
-          "properties": {
-            "title": {
-              "type": "string",
-              "title": "Título do formulário",
-              "description": "Nome do formulário exibido aos clientes"
-            },
-            "description": {
-              "type": "string",
-              "title": "Descrição do formulário",
-              "description": "Texto exibido em página"
-            },
-            "page": {
-              "type": "string",
-              "title": "Página de exibição",
-              "description": "Slug da página em que formulário será exibido"
-            },
-            "fields": {
-              "type": "string",
-              "title": "Campos",
-              "description": "Informe os campos que serão exibidos no formulário separados por \";\". Ex: \"Data do pedido;Motivo do contato;Nome;E-mail\""
-            }
+        "type": "object",
+        "required": [],
+        "properties": {
+          "primary_key": {
+            "type": "string",
+            "title": "Primary API Key",
+            "default": ""
+          },
+          "primary_secret": {
+            "type": "string",
+            "title": "Primary API Key",
+            "default": ""
+          },
+          "list_id": {
+            "type": "string",
+            "title": "Contact List Id",
+            "default": ""
           }
         }
       }
