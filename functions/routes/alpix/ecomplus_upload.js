@@ -1,7 +1,7 @@
-const getAppData = require('./../../lib/store-api/get-app-data')
+const getAppData = require('../../lib/store-api/get-app-data')
 exports.post = async ({ appSdk, admin }, req, res) => {
-  const data = req.body
   const storeId = data.storeId
+  const data = req.body
   const mail = data.mail
   const fullname = data.fullname || null
   const gender = data.gender || null

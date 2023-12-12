@@ -198,6 +198,29 @@ const app = {
           },
         }
       }
+    },
+    uploader : {
+      schema : {
+        type : 'object',
+        required: [],
+        properties:{
+          x_store_id: {
+            type: 'string',
+            title: 'X-Store-ID',
+            default:'',
+          },
+          x_my_id: {
+            type: 'string',
+            title: 'X-My-ID',
+            default:'',
+          },
+          x_access_token: {
+            type: 'string',
+            title: 'X-Access-Token',
+            default:'',
+          },
+        }
+      }
     }
   }
 }
