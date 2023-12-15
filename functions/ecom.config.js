@@ -140,6 +140,7 @@ const app = {
   admin_settings: {
     mailjet : {
       schema : {
+        title: 'Integração Newsletter - Maijet',
         type : 'object',
         required: [],
         properties:{
@@ -150,7 +151,7 @@ const app = {
           },
           primary_secret: {
             type: 'string',
-            title: 'Primary API Key',
+            title: 'Primary Secret',
             default:'',
           },
           list_id: {
@@ -163,6 +164,7 @@ const app = {
     },
     uploader : {
       schema : {
+        title: 'Uploader de Arquivos - E-com.plus',
         type : 'object',
         required: [],
         properties:{
