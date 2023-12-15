@@ -30,6 +30,7 @@
   "admin_settings": {
     "mailjet": {
       "schema": {
+        "title": "Integração Newsletter - Maijet",
         "type": "object",
         "required": [],
         "properties": {
@@ -40,7 +41,7 @@
           },
           "primary_secret": {
             "type": "string",
-            "title": "Primary API Key",
+            "title": "Primary Secret",
             "default": ""
           },
           "list_id": {
@@ -53,6 +54,7 @@
     },
     "uploader": {
       "schema": {
+        "title": "Uploader de Arquivos - E-com.plus",
         "type": "object",
         "required": [],
         "properties": {
