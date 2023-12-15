@@ -75,6 +75,20 @@
           }
         }
       }
+    },
+    "storeboost": {
+      "schema": {
+        "title": "Integração Storeboost - Alpix",
+        "type": "object",
+        "required": [],
+        "properties": {
+          "api_token": {
+            "type": "string",
+            "title": "API Token",
+            "default": ""
+          }
+        }
+      }
     }
   },
   "auth_callback_uri": "https://us-central1-marketingtools-ecomplus.cloudfunctions.net/app/ecom/auth-callback"
