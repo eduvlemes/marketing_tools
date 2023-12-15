@@ -185,6 +185,20 @@ const app = {
           },
         }
       }
+    },
+    storeboost : {
+      schema : {
+        title: 'Integração Storeboost - Alpix',
+        type : 'object',
+        required: [],
+        properties:{
+          api_token: {
+            type: 'string',
+            title: 'API Token',
+            default:'',
+          }
+        }
+      }
     }
   }
 }
