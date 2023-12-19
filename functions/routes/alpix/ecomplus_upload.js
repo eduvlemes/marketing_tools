@@ -47,15 +47,13 @@ exports.post = async ({ appSdk, admin }, req, res) => {
             const err = new Error('Unexpected Storage API response')
             err.response = { data, status }
             throw err
-        })
-      }).catch(err => {
-        console.error(err)
-        res.send(err.message)         
-      })   
-  .catch(err => {
+        }).catch(err => {
+          console.error(err)
+          res.send(err.message) 
+        })        
+        
+  }).catch(err => {
     console.error(err)
     res.send(err.message)
-  })
-  console.log('Nenhuma operação realizada')  
-  res.send({error: true, msg : 'empty'})
-}
+  })  
+};
